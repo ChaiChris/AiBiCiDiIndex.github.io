@@ -3,150 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>工程公司形象網站</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="styles.css" rel="stylesheet">
+  <title>AiBiCiDi 入口</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @theme {
+      --color-clifford: #da373d;
+    }
+  </style>
 
 </head>
-<body>
-  <!-- 導覽列 -->
-  <nav class="navbar navbar-expand-lg">
-    <div class="container">
-      <a class="navbar-brand" href="#">AiBiCiDi</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
+<body class="bg-gray-100 font-sans">
+<!-- 導航欄 -->
+<nav class="bg-white shadow-md p-4">
+  <div class="container mx-auto flex justify-between items-center">
+    <a href="#" class="text-xl font-bold text-gray-800">AiBiCiDi</a>
+    <div class="space-x-4">
+      <a href="#" class="text-gray-600 hover:text-blue-500">首頁</a>
+      <a href="#" class="text-gray-600 hover:text-blue-500">工程</a>
+      <a href="#" class="text-gray-600 hover:text-blue-500">餐飲</a>
+    </div>
+  </div>
+</nav>
+
+<!-- 主內容 -->
+<main class="container mx-auto mt-8 p-4">
+  <section class=""></section>
+  <!-- 卡片元素 -->
+  <div class="max-w-sm rounded-lg overflow-hidden shadow-lg bg-white m-4">
+    <!-- 卡片圖片 -->
+    <img class="w-full h-48 object-cover" src="https://via.placeholder.com/400x200" alt="卡片圖片">
+    <!-- 卡片內容 -->
+    <div class="p-6">
+      <h2 class="text-xl font-bold text-gray-800 mb-2">卡片標題</h2>
+      <p class="text-gray-600 text-base mb-4">
+        這是一段卡片的描述文字，您可以在這裡介紹產品、服務或其他內容。Tailwind CSS 讓設計變得簡單又美觀！
+      </p>
+      <!-- 按鈕 -->
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        了解更多
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">工程</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">餐飲</a>
-          </li>
-        </ul>
-      </div>
     </div>
-  </nav>
+  </div>
 
-  <!-- 主要內容 -->
-  <main class="container my-5">
-    <section id="services">
-      <h2 class="mb-4">工程</h2>
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h5 class="card-title">建築工程</h5>
-              <p class="card-text">專業建築設計與施工</p>
-              <a href="#" class="btn">前往</a>
-              <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#qrcode1">
-                QR Code
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h5 class="card-title">土木工程</h5>
-              <p class="card-text">基礎建設與公共工程</p>
-              <a href="#" class="btn">前往</a>
-              <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#qrcode2">
-                QR Code
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h5 class="card-title">機電工程</h5>
-              <p class="card-text">電力系統與設備安裝</p>
-              <a href="#" class="btn ">前往</a>
-              <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#qrcode3">
-                QR Code
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Modal -->
-    <div class="modal fade" id="qrcode1" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">建築工程 QR Code</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-          </div>
-          <div class="modal-body text-center">
-            <img src="qrcode1.png" alt="QR Code" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="modal fade" id="qrcode2" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">土木工程 QR Code</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-          </div>
-          <div class="modal-body text-center">
-            <img src="qrcode2.png" alt="QR Code" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="modal fade" id="qrcode3" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">機電工程 QR Code</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-          </div>
-          <div class="modal-body text-center">
-            <img src="qrcode3.png" alt="QR Code" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
+</main>
 
-  <!-- 頁尾 -->
-  <footer class="py-4">
-    <div class="container text-center">
-      <!-- <p>&copy; 2025</p> -->
-    </div>
-  </footer>
+<!-- 頁腳 -->
+<footer class="bg-gray-800 text-white p-4 mt-8">
+  <div class="container mx-auto text-center">
+    <p>&copy; AiBiCiDi Company</p>
+  </div>
+</footer>
+</body>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const qrCodes = {
-        qrcode1: 'https://example.com/architecture',
-        qrcode2: 'https://example.com/civil',
-        qrcode3: 'https://example.com/electrical'
-      };
-
-      Object.keys(qrCodes).forEach(id => {
-        const modal = document.getElementById(id);
-        const canvas = document.createElement('canvas');
-        modal.querySelector('.modal-body').appendChild(canvas);
-        
-        QRCode.toCanvas(canvas, qrCodes[id], {
-          width: 200,
-          margin: 2
-        }, function (error) {
-          if (error) console.error(error);
-        });
-      });
-    });
-  </script>
 </body>
 </html>

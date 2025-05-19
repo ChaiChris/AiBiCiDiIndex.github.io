@@ -1,272 +1,350 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AiBiCiDi 入口</title>
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
-            integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+      integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <style type="text/tailwindcss">
-        @theme {
-            --color-clifford: #da373d;
-        }
+      @theme {
+        --color-clifford: #da373d;
+      }
 
-        /** {*/
-        /*    border: 1px solid var(--color-clifford);*/
-        /*}*/
+      /** {*/
+      /*    border: 1px solid var(--color-clifford);*/
+      /*}*/
     </style>
-
-</head>
-<body class="bg-gray-100 font-sans">
-<!-- 導航欄 -->
-<nav class="bg-white shadow-md p-4">
-    <div class="container mx-auto flex justify-between items-center">
-        <a href="/index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="/Logo.png" class="h-8" alt="Logo"/>
-            <!--            <span class="self-center text-2xl font-semibold whitespace-nowrap"></span>-->
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <!-- 導航欄 -->
+    <nav class="bg-white shadow-md p-4">
+      <div class="container mx-auto flex justify-between items-center">
+        <a
+          href="/index.html"
+          class="flex items-center space-x-3 rtl:space-x-reverse"
+        >
+          <img src="/Logo.png" class="h-8" alt="Logo" />
+          <!--            <span class="self-center text-2xl font-semibold whitespace-nowrap"></span>-->
         </a>
         <div class="space-x-4">
-            <a href="/index.html" class="text-gray-600 hover:text-amber-400">首頁</a>
-            <a href="#" class="text-amber-600">工程</a>
-            <a href="/formGroupShop.html" class="text-gray-600 hover:text-amber-400">餐飲</a>
+          <a href="/index.html" class="text-gray-600 hover:text-amber-400"
+            >首頁</a
+          >
+          <a href="#" class="text-amber-600">工程</a>
+          <a
+            href="/formGroupShop.html"
+            class="text-gray-600 hover:text-amber-400"
+            >餐飲</a
+          >
+          <a
+            href="/formGroupOther.html"
+            class="text-gray-600 hover:text-amber-400"
+            >其他人員打卡</a
+          >
         </div>
-    </div>
-</nav>
+      </div>
+    </nav>
 
-<!-- 主內容 -->
-<main class="container mx-auto mt-8 p-4">
-    <!-- 標籤頁元件 -->
-    <div class="p-4 bg-white rounded-lg shadow-md">
+    <!-- 主內容 -->
+    <main class="container mx-auto mt-8 p-4">
+      <!-- 標籤頁元件 -->
+      <div class="p-4 bg-white rounded-lg shadow-md">
         <!-- 標題 -->
-        <h2 class="text-xl font-bold text-gray-600 mb-4 text-center">工程表單</h2>
+        <h2 class="text-xl font-bold text-gray-600 mb-4 text-center">
+          工程表單
+        </h2>
 
         <!-- 標籤頁內容 -->
         <div id="tab-content" class="container mx-auto px-4 py-6">
-            <!-- Inside Form Section -->
-            <div class="bg-white rounded-lg shadow-md p-4 mb-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <!-- Card 1 -->
-                    <div class="card-container bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50">
-                        <div class="p-5">
-                            <div class="flex items-center mb-3">
-                                <i class='bx bxs-sun text-yellow-500 text-xl mr-2'></i>
-                                <h3 class="card-title text-lg md:text-xl font-semibold text-gray-900">智勇仁企業
-                                    合作單位登記表</h3>
-                            </div>
-                            <button type="button" id="engineeringForm1"
-                                    class="urlButton mb-3 w-full mt-3 text-white bg-gradient-to-r from-blue-500 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-all duration-200">
-                                前往
-                            </button>
-                            <button type="button" id="engineeringQrCode1"
-                                    class="qrcodeBtn text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center">
-                                開啟 QrCode
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="card-container bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50">
-                        <div class="p-5">
-                            <div class="flex items-center mb-3">
-                                <i class='bx bxs-moon text-indigo-600 text-xl mr-2'></i>
-                                <h3 class="card-title text-lg md:text-xl font-semibold text-gray-900">勇行益
-                                    公司夥伴工地巡檢表</h3>
-                            </div>
-                            <button type="button" id="engineeringForm2"
-                                    class="urlButton mb-3 w-full mt-3 text-white bg-gradient-to-r from-blue-500 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-all duration-200">
-                                前往
-                            </button>
-                            <button type="button" id="engineeringQrCode2"
-                                    class="qrcodeBtn text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center">
-                                開啟 QrCode
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Qrcode  -->
-    <div id="qrCodeModal" aria-hidden="true"
-         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-        <div class="relative p-4 w-full max-w-md max-h-full">
-            <!-- Modal content -->
-            <div class="relative rounded-lg shadow-sm bg-gray-700">
-                <!-- Modal header -->
-                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-600">
-                    <h3 class="text-lg font-semibold text-white">
-                        QR Code
+          <!-- Inside Form Section -->
+          <div class="bg-white rounded-lg shadow-md p-4 mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <!-- Card 1 -->
+              <div
+                class="card-container bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50"
+              >
+                <div class="p-5">
+                  <div class="flex items-center mb-3">
+                    <i class="bx bxs-sun text-yellow-500 text-xl mr-2"></i>
+                    <h3
+                      class="card-title text-lg md:text-xl font-semibold text-gray-900"
+                    >
+                      智勇仁企業 合作單位登記表
                     </h3>
-                    <button type="button"
-                            class="modalCloseBtn text-gray-400 bg-transparent rounded-lg text-sm h-8 w-8 ms-auto inline-flex justify-center items-center hover:bg-gray-600 hover:text-white"
-                            data-modal-toggle="qrCodeModal">
-                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                             viewBox="0 0 14 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                        </svg>
-                        <span class="sr-only">Close modal</span>
-                    </button>
+                  </div>
+                  <button
+                    type="button"
+                    id="engineeringForm1"
+                    class="urlButton mb-3 w-full mt-3 text-white bg-gradient-to-r from-blue-500 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-all duration-200"
+                  >
+                    前往
+                  </button>
+                  <button
+                    type="button"
+                    id="engineeringQrCode1"
+                    class="qrcodeBtn text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
+                  >
+                    開啟 QrCode
+                  </button>
                 </div>
+              </div>
 
-                <!-- QrcodeDisplqy -->
-                <div class="p-4 md:p-5">
-                    <p class="text-sm font-normal text-gray-300 mb-4">請掃描此 QRCode</p>
-                    <div class="flex justify-center items-center bg-white p-4 rounded-lg">
-                        <div id="qrCodeDisplay" class="w-64 h-64 flex items-center justify-center">
-                            <div class="text-gray-400 text-center">
-                                <svg class="mx-auto w-16 h-16" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                     viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                          d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/>
-                                </svg>
-                                <p class="mt-2">載入中... （若是超過一分鐘請重新加載網頁）</p>
-                            </div>
-                        </div>
-                    </div>
+              <!-- Card 2 -->
+              <div
+                class="card-container bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50"
+              >
+                <div class="p-5">
+                  <div class="flex items-center mb-3">
+                    <i class="bx bxs-moon text-indigo-600 text-xl mr-2"></i>
+                    <h3
+                      class="card-title text-lg md:text-xl font-semibold text-gray-900"
+                    >
+                      勇行益 公司夥伴工地巡檢表
+                    </h3>
+                  </div>
+                  <button
+                    type="button"
+                    id="engineeringForm2"
+                    class="urlButton mb-3 w-full mt-3 text-white bg-gradient-to-r from-blue-500 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-all duration-200"
+                  >
+                    前往
+                  </button>
+                  <button
+                    type="button"
+                    id="engineeringQrCode2"
+                    class="qrcodeBtn text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
+                  >
+                    開啟 QrCode
+                  </button>
                 </div>
-                <div class="flex items-center p-4 md:p-5 border-t rounded-b border-gray-600">
-                    <p class="text-xs text-gray-400">請使用設備掃描來開啟表單</p>
-                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-</main>
+      <!-- Modal Qrcode  -->
+      <div
+        id="qrCodeModal"
+        aria-hidden="true"
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+      >
+        <div class="relative p-4 w-full max-w-md max-h-full">
+          <!-- Modal content -->
+          <div class="relative rounded-lg shadow-sm bg-gray-700">
+            <!-- Modal header -->
+            <div
+              class="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-600"
+            >
+              <h3 class="text-lg font-semibold text-white">QR Code</h3>
+              <button
+                type="button"
+                class="modalCloseBtn text-gray-400 bg-transparent rounded-lg text-sm h-8 w-8 ms-auto inline-flex justify-center items-center hover:bg-gray-600 hover:text-white"
+                data-modal-toggle="qrCodeModal"
+              >
+                <svg
+                  class="w-3 h-3"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 14 14"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                  />
+                </svg>
+                <span class="sr-only">Close modal</span>
+              </button>
+            </div>
 
-<!-- 頁腳 -->
-<footer class="bg-gray-800 text-white p-4 mt-8">
-    <div class="container mx-auto text-center">
+            <!-- QrcodeDisplqy -->
+            <div class="p-4 md:p-5">
+              <p class="text-sm font-normal text-gray-300 mb-4">
+                請掃描此 QRCode
+              </p>
+              <div
+                class="flex justify-center items-center bg-white p-4 rounded-lg"
+              >
+                <div
+                  id="qrCodeDisplay"
+                  class="w-64 h-64 flex items-center justify-center"
+                >
+                  <div class="text-gray-400 text-center">
+                    <svg
+                      class="mx-auto w-16 h-16"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"
+                      />
+                    </svg>
+                    <p class="mt-2">
+                      載入中... （若是超過一分鐘請重新加載網頁）
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex items-center p-4 md:p-5 border-t rounded-b border-gray-600"
+            >
+              <p class="text-xs text-gray-400">請使用設備掃描來開啟表單</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- 頁腳 -->
+    <footer class="bg-gray-800 text-white p-4 mt-8">
+      <div class="container mx-auto text-center">
         <p>&copy; AiBiCiDi Company</p>
-    </div>
-</footer>
+      </div>
+    </footer>
 
-<script>
-
-    window.onload = () => {
-
-
-        const buttons = document.querySelectorAll('.urlButton');
+    <script>
+      window.onload = () => {
+        const buttons = document.querySelectorAll(".urlButton");
         const formConfig = {
-            'engineeringForm1': {//合作單位登記表
-                //https://docs.google.com/forms/d/e/1FAIpQLScx_vYLwmjSdDZm7RhsKHfnhuuAcxxZLh2vcjXxED3OuZeyeQ/viewform?usp=pp_url
-                targetID: '1FAIpQLScx_vYLwmjSdDZm7RhsKHfnhuuAcxxZLh2vcjXxED3OuZeyeQ'
-            },
-            'engineeringForm2': {
-                //https://docs.google.com/forms/d/e/1FAIpQLScPBwcdpnaJIMu8KJqs659wUC_YU6Lag-nvi2aF_oKIqcLwpQ/viewform?usp=pp_url&entry.1327754368=2025-04-06&entry.1502181148=00:00
-                targetID: '1FAIpQLScPBwcdpnaJIMu8KJqs659wUC_YU6Lag-nvi2aF_oKIqcLwpQ',
-                dateFieldId: '1327754368'
-            }
+          engineeringForm1: {
+            //合作單位登記表
+            //https://docs.google.com/forms/d/e/1FAIpQLScx_vYLwmjSdDZm7RhsKHfnhuuAcxxZLh2vcjXxED3OuZeyeQ/viewform?usp=pp_url
+            targetID:
+              "1FAIpQLScx_vYLwmjSdDZm7RhsKHfnhuuAcxxZLh2vcjXxED3OuZeyeQ",
+          },
+          engineeringForm2: {
+            //https://docs.google.com/forms/d/e/1FAIpQLScPBwcdpnaJIMu8KJqs659wUC_YU6Lag-nvi2aF_oKIqcLwpQ/viewform?usp=pp_url&entry.1327754368=2025-04-06&entry.1502181148=00:00
+            targetID:
+              "1FAIpQLScPBwcdpnaJIMu8KJqs659wUC_YU6Lag-nvi2aF_oKIqcLwpQ",
+            dateFieldId: "1327754368",
+          },
         };
         const qrCodeConfig = {
-            'engineeringQrCode1': {//合作單位登記表
-                //https://docs.google.com/forms/d/e/1FAIpQLScx_vYLwmjSdDZm7RhsKHfnhuuAcxxZLh2vcjXxED3OuZeyeQ/viewform?usp=pp_url
-                targetID: '1FAIpQLScx_vYLwmjSdDZm7RhsKHfnhuuAcxxZLh2vcjXxED3OuZeyeQ'
-            },
-            'engineeringQrCode2': {
-                //https://docs.google.com/forms/d/e/1FAIpQLScPBwcdpnaJIMu8KJqs659wUC_YU6Lag-nvi2aF_oKIqcLwpQ/viewform?usp=pp_url&entry.1327754368=2025-04-06&entry.1502181148=00:00
-                targetID: '1FAIpQLScPBwcdpnaJIMu8KJqs659wUC_YU6Lag-nvi2aF_oKIqcLwpQ',
-                dateFieldId: '1327754368'
-            }
+          engineeringQrCode1: {
+            //合作單位登記表
+            //https://docs.google.com/forms/d/e/1FAIpQLScx_vYLwmjSdDZm7RhsKHfnhuuAcxxZLh2vcjXxED3OuZeyeQ/viewform?usp=pp_url
+            targetID:
+              "1FAIpQLScx_vYLwmjSdDZm7RhsKHfnhuuAcxxZLh2vcjXxED3OuZeyeQ",
+          },
+          engineeringQrCode2: {
+            //https://docs.google.com/forms/d/e/1FAIpQLScPBwcdpnaJIMu8KJqs659wUC_YU6Lag-nvi2aF_oKIqcLwpQ/viewform?usp=pp_url&entry.1327754368=2025-04-06&entry.1502181148=00:00
+            targetID:
+              "1FAIpQLScPBwcdpnaJIMu8KJqs659wUC_YU6Lag-nvi2aF_oKIqcLwpQ",
+            dateFieldId: "1327754368",
+          },
         };
 
-        const baseUrlPrefix = 'https://docs.google.com/forms/d/e/';
-        const baseUrlSuffix = '/viewform?usp=pp_url&entry.';
+        const baseUrlPrefix = "https://docs.google.com/forms/d/e/";
+        const baseUrlSuffix = "/viewform?usp=pp_url&entry.";
 
-// Get today's date in YYYY-MM-DD format
+        // Get today's date in YYYY-MM-DD format
         function getTodayFormattedDate() {
-            const today = new Date();
-            return today.toISOString().split('T')[0];
+          const today = new Date();
+          return today.toISOString().split("T")[0];
         }
 
-// Open URL in new tab
+        // Open URL in new tab
         function openInNewTab(url) {
-            window.open(url, '_blank');
+          window.open(url, "_blank");
         }
 
-// Add event listeners to all buttons
-        buttons.forEach(button => {
-            button.addEventListener('click', function () {
-                const buttonId = this.id;
-                const config = formConfig[buttonId];
+        // Add event listeners to all buttons
+        buttons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const buttonId = this.id;
+            const config = formConfig[buttonId];
 
-                if (config) {
-                    if (config.dateFieldId) {
-                        const todayDate = getTodayFormattedDate();
-                        // Build the URL with date parameter
-                        let finalUrl = `${baseUrlPrefix}${config.targetID}${baseUrlSuffix}${config.dateFieldId}=${todayDate}`;
-                        console.log(finalUrl);
-                        openInNewTab(finalUrl);
-
-                    } else {
-                        let finalUrl = `${baseUrlPrefix}${config.targetID}${baseUrlSuffix}`;
-                        console.log(finalUrl);
-                        openInNewTab(finalUrl);
-                    }
-                    // Add any extra parameters
-                    // if (config.extraParams) {
-                    //     for (const [key, value] of Object.entries(config.extraParams)) {
-                    //         finalUrl += `&${key}=${encodeURIComponent(value)}`;
-                    //     }
-                    // }
-                } else {
-                    alert("錯誤：表單ID為空");
-                }
-            });
+            if (config) {
+              if (config.dateFieldId) {
+                const todayDate = getTodayFormattedDate();
+                // Build the URL with date parameter
+                let finalUrl = `${baseUrlPrefix}${config.targetID}${baseUrlSuffix}${config.dateFieldId}=${todayDate}`;
+                console.log(finalUrl);
+                openInNewTab(finalUrl);
+              } else {
+                let finalUrl = `${baseUrlPrefix}${config.targetID}${baseUrlSuffix}`;
+                console.log(finalUrl);
+                openInNewTab(finalUrl);
+              }
+              // Add any extra parameters
+              // if (config.extraParams) {
+              //     for (const [key, value] of Object.entries(config.extraParams)) {
+              //         finalUrl += `&${key}=${encodeURIComponent(value)}`;
+              //     }
+              // }
+            } else {
+              alert("錯誤：表單ID為空");
+            }
+          });
         });
 
-        const qrBtn = document.querySelectorAll('.qrcodeBtn');
-        const qrCodeModal = document.getElementById('qrCodeModal');
-        const modalCloseBtn = document.querySelector('.modalCloseBtn');
+        const qrBtn = document.querySelectorAll(".qrcodeBtn");
+        const qrCodeModal = document.getElementById("qrCodeModal");
+        const modalCloseBtn = document.querySelector(".modalCloseBtn");
         qrBtn.forEach((el) => {
-            el.addEventListener('click', function () {
-                const buttonId = this.id;
-                const config = qrCodeConfig[buttonId];
+          el.addEventListener("click", function () {
+            const buttonId = this.id;
+            const config = qrCodeConfig[buttonId];
 
-                if (config) {
-                    if (config.dateFieldId) {
-                        const todayDate = getTodayFormattedDate();
-                        // Build the URL with date parameter
-                        let finalUrl = `${baseUrlPrefix}${config.targetID}${baseUrlSuffix}${config.dateFieldId}=${todayDate}`;
-                        loadQrCode(finalUrl);
-
-                    } else {
-                        let finalUrl = `${baseUrlPrefix}${config.targetID}${baseUrlSuffix}`;
-                        loadQrCode(finalUrl);
-                    }
-                } else {
-                    alert("錯誤：表單ID為空");
-                }
-                qrCodeModal.classList.remove('hidden');
-            })
+            if (config) {
+              if (config.dateFieldId) {
+                const todayDate = getTodayFormattedDate();
+                // Build the URL with date parameter
+                let finalUrl = `${baseUrlPrefix}${config.targetID}${baseUrlSuffix}${config.dateFieldId}=${todayDate}`;
+                loadQrCode(finalUrl);
+              } else {
+                let finalUrl = `${baseUrlPrefix}${config.targetID}${baseUrlSuffix}`;
+                loadQrCode(finalUrl);
+              }
+            } else {
+              alert("錯誤：表單ID為空");
+            }
+            qrCodeModal.classList.remove("hidden");
+          });
         });
 
-        function loadQrCode (url) {
-            const qrCodeDisplayModal = document.getElementById('qrCodeDisplay');
-            qrCodeDisplayModal.innerHTML = '';
-            var qrcode = new QRCode(qrCodeDisplayModal, {
-                text: url,
-                width: 250,
-                height: 250,
-                colorDark: "#000000",
-                colorLight: "#ffffff",
-                correctLevel: QRCode.CorrectLevel.H
-            });
+        function loadQrCode(url) {
+          const qrCodeDisplayModal = document.getElementById("qrCodeDisplay");
+          qrCodeDisplayModal.innerHTML = "";
+          var qrcode = new QRCode(qrCodeDisplayModal, {
+            text: url,
+            width: 250,
+            height: 250,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H,
+          });
         }
 
-        modalCloseBtn.addEventListener('click', () => {
-            qrCodeModal.classList.add('hidden');
+        modalCloseBtn.addEventListener("click", () => {
+          qrCodeModal.classList.add("hidden");
         });
-    }
-
-
-</script>
-</body>
+      };
+    </script>
+  </body>
 </html>

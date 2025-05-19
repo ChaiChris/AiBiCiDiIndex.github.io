@@ -1,63 +1,80 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AiBiCiDi 入口</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style type="text/tailwindcss">
-        @theme {
-            --color-clifford: #da373d;
-        }
+      @theme {
+        --color-clifford: #da373d;
+      }
     </style>
-
-</head>
-<body class="bg-gray-100 font-sans">
-<!-- 導航欄 -->
-<nav class="bg-white shadow-md p-4">
-    <div class="container mx-auto flex justify-between items-center">
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <!-- 導航欄 -->
+    <nav class="bg-white shadow-md p-4">
+      <div class="container mx-auto flex justify-between items-center">
         <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="/Logo.png" class="h-8" alt="Logo" />
-<!--            <span class="self-center text-2xl font-semibold whitespace-nowrap"></span>-->
+          <img src="/Logo.png" class="h-8" alt="Logo" />
+          <!--            <span class="self-center text-2xl font-semibold whitespace-nowrap"></span>-->
         </a>
         <div class="space-x-4">
-            <a href="#" class="text-amber-600">首頁</a>
-            <a href="/formGroupEngineering.html" class="text-gray-600 hover:text-amber-400">工程</a>
-            <a href="/formGroupShop.html" class="text-gray-600 hover:text-amber-400">餐飲</a>
+          <a href="#" class="text-amber-600">首頁</a>
+          <a
+            href="/formGroupEngineering.html"
+            class="text-gray-600 hover:text-amber-400"
+            >工程</a
+          >
+          <a
+            href="/formGroupShop.html"
+            class="text-gray-600 hover:text-amber-400"
+            >餐飲</a
+          >
+          <a
+            href="/formGroupOther.html"
+            class="text-gray-600 hover:text-amber-400"
+            >其他人員打卡</a
+          >
         </div>
-    </div>
-</nav>
+      </div>
+    </nav>
 
-<!-- 主內容 -->
-<!--<main class="container mx-auto mt-8 p-4">-->
-<!--    <section class="">-->
-<!--        -->
-<!--    </section>-->
-<!--</main>-->
+    <!-- 主內容 -->
+    <!--<main class="container mx-auto mt-8 p-4">-->
+    <!--    <section class="">-->
+    <!--        -->
+    <!--    </section>-->
+    <!--</main>-->
 
-
-<!-- 暫時元件 -->
-<div class="flex items-center justify-center min-h-screen px-4">
-    <div class="max-w-2xl w-full bg-white rounded-lg shadow-lg p-6 md:p-8 flex flex-col md:flex-row items-center gap-6">
+    <!-- 暫時元件 -->
+    <div class="flex items-center justify-center min-h-screen px-4">
+      <div
+        class="max-w-2xl w-full bg-white rounded-lg shadow-lg p-6 md:p-8 flex flex-col md:flex-row items-center gap-6"
+      >
         <div class="text-center md:text-left">
-            <h1 class="text-3xl font-bold text-gray-800 mb-2">歡迎！</h1>
-            <p class="text-gray-600 mb-4">請點擊左上方的 <span class="font-semibold text-amber-600">導覽列按鈕</span>，開始探索所有功能。</p>
+          <h1 class="text-3xl font-bold text-gray-800 mb-2">歡迎！</h1>
+          <p class="text-gray-600 mb-4">
+            請點擊左上方的
+            <span class="font-semibold text-amber-600">導覽列按鈕</span
+            >，開始探索所有功能。
+          </p>
         </div>
         <div class="flex-shrink-0">
-            <img
-                    src="/indexImg.png"
-                    alt="歡迎圖片"
-                    class="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-gray-200"
-            >
+          <img
+            src="/indexImg.png"
+            alt="歡迎圖片"
+            class="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-gray-200"
+          />
         </div>
+      </div>
     </div>
-</div>
 
-<!-- footer -->
-<footer class="bg-gray-800 text-white p-4 mt-8">
-    <div class="container mx-auto text-center">
+    <!-- footer -->
+    <footer class="bg-gray-800 text-white p-4 mt-8">
+      <div class="container mx-auto text-center">
         <p>&copy; AiBiCiDi Company</p>
-    </div>
-</footer>
-</body>
+      </div>
+    </footer>
+  </body>
 </html>

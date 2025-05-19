@@ -1,0 +1,80 @@
+.work-style {
+  --s: 50px; /* control the size*/
+  --c1: #ffffff;
+  --c2: #e8ebf2;
+
+  --t: calc(var(--s) / 10); /* control the thickness */
+  --_c: #0000 calc(98% - var(--t)), var(--c1) calc(100% - var(--t)) 98%, #0000;
+  --_s: calc(2 * var(--s)) calc(5 * var(--s) / 2);
+  --_r0: /var(--_s) radial-gradient(calc(var(--s) / 2) at 0 20%, var(--_c));
+  --_r1: /var(--_s) radial-gradient(calc(var(--s) / 2) at 100% 20%, var(--_c));
+  background: 0 0 var(--_r0),
+    calc(-1 * var(--s)) calc(5 * var(--s) / 4) var(--_r0), var(--s) 0 var(--_r1),
+    0 calc(5 * var(--s) / 4) var(--_r1),
+    conic-gradient(at var(--t) calc(20% + 2 * var(--t)), #0000 75%, var(--c1) 0)
+      calc(var(--t) / -2) calc(var(--s) - var(--t)) / var(--s)
+      calc(5 * var(--s) / 4),
+    repeating-conic-gradient(var(--c2) 0 25%, #0000 0 50%) var(--s)
+      calc(var(--s) / -8) / var(--_s),
+    conic-gradient(from 90deg at var(--t) var(--t), var(--c2) 25%, var(--c1) 0)
+      calc((var(--s) - var(--t)) / 2) calc((var(--s) - var(--t)) / 2) / var(--s)
+      calc(5 * var(--s) / 4);
+}
+
+.restaurant-style {
+  --s: 77px; /* control the size*/
+  --c1: #ffffff;
+  --c2: #f2f2f2;
+  --c3: #f1e8e4;
+
+  --_g: 50%, #0000 37%, var(--c1) 39% 70%, #0000 72%;
+  --_t: 50%, var(--c2) 40deg, var(--c3) 0 140deg, var(--c2) 0 180deg, #0000 0;
+  --_s: 47% 50% at;
+  background: radial-gradient(var(--_s) -10% var(--_g)) 0 calc(var(--s) / 2),
+    radial-gradient(var(--_s) -10% var(--_g)) calc(var(--s) / 2) 0,
+    radial-gradient(var(--_s) 110% var(--_g)),
+    radial-gradient(var(--_s) 110% var(--_g)) calc(var(--s) / 2)
+      calc(var(--s) / 2),
+    conic-gradient(from 0deg at 55% var(--_t)) calc(var(--s) / 4) 0,
+    conic-gradient(from 180deg at 45% var(--_t)) calc(var(--s) / 4) 0, var(--c2);
+  background-size: var(--s) var(--s);
+}
+
+.engineering-style {
+  --s: 43px; /* control the size*/
+  --c1: #fafafa;
+  --c2: #f1f1f4;
+  --c3: #ededed;
+
+  --_g: var(--c3) 0 120deg, #0000 0;
+  background: conic-gradient(from -60deg at 50% calc(100% / 3), var(--_g)),
+    conic-gradient(from 120deg at 50% calc(200% / 3), var(--_g)),
+    conic-gradient(
+      from 60deg at calc(200% / 3),
+      var(--c3) 60deg,
+      var(--c2) 0 120deg,
+      #0000 0
+    ),
+    conic-gradient(from 180deg at calc(100% / 3), var(--c1) 60deg, var(--_g)),
+    linear-gradient(
+      90deg,
+      var(--c1) calc(100% / 6),
+      var(--c2) 0 50%,
+      var(--c1) 0 calc(500% / 6),
+      var(--c2) 0
+    );
+  background-size: calc(1.732 * var(--s)) var(--s);
+}
+
+.main-card {
+  background-color: #ffffffb3;
+  backdrop-filter: blur(20px);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
